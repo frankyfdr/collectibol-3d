@@ -57,6 +57,11 @@ Asegúrate de tener instaladas las siguientes librerías
 
     npx expo install react-dom react-native-web
 
+## Run
+
+``yarn install`
+` yarn start --web`
+
 Autor
 
 Franklin Rocha
