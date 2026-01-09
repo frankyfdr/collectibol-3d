@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 10,
     alignItems: 'center',
+    width: 300,
+    alignSelf: 'center',
   },
   buttonSecondary: {
     backgroundColor: '#e6e5e5',
