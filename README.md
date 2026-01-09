@@ -5,18 +5,13 @@
 
 ### Tecnologías utilizadas
 
+    Expo route
     Expo
-
     React Native + TypeScript
-
     @react-three/fiber
-
     @react-three/drei
-
     @react-spring/three
-
     Zustand
-
     AsyncStorage
 
 ### Requisitos previos

@@ -3,11 +3,17 @@ import { ButtonCTA } from '../Components/Button';
 import { Scene3D } from '../Components/Scene3D';
 import { useObjectsStore } from '../store';
 import { randomColor, randomDirection, randomPosition, randomSize, randomString, randomVelocity } from '../../utils/random';
+import { router } from 'expo-router';
 const SceneScreen = () => {
   const addObject = useObjectsStore((s) => s.addObject);
   const clearObjects = useObjectsStore((s) => s.clearObjects);
   return (
     <View>
+      <View>
+        <TouchableOpacity onPress={() => router.push('/')}>
+          <Text>⬅ Go Back</Text>
+        </TouchableOpacity>
+      </View>
       <View>
         <Text style={styles.infoText}>Press, hold and drag to move the camera</Text>
       </View>
@@ -45,7 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e0e4e0',
     borderWidth: 2,
     borderRadius: 10,
-    width: 370,
+    width: '90%',
+    alignSelf: 'center',
     marginBottom: 20,
     height: 300,
   },

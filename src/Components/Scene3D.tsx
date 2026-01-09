@@ -7,7 +7,6 @@ import Box from './Objects';
 export const Scene3D = () => {
   const objects = useObjectsStore((s) => s.objects);
   console.log('Rendering Scene3D with objects:', objects);
-  const [color, setColor] = React.useState('red');
   return (
     <Canvas>
       <ambientLight intensity={Math.PI / 2} />
