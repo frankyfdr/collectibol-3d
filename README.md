@@ -1,63 +1,54 @@
 ## Collectibol – Prueba Técnica Frontend (React Native + 3D)
 
-    Mini aplicación desarrollada con Expo + React Native que renderiza una escena 3D utilizando react-three/fiber.
-    La app permite generar objetos 3D de forma procedural, interactuar con ellos y persistir el estado entre sesiones.
+Mini app desarrollada con Expo + React Native para generar objetos 3D de forma procedural, interactuar con ellos y persistir el estado entre sesiones.
 
-### Tecnologías utilizadas
+### Stack
 
-    Expo route
-    Expo
-    React Native + TypeScript
-    @react-three/fiber
-    @react-three/drei
-    @react-spring/three
-    Zustand
-    AsyncStorage
+- Expo (SDK 54)
+- Expo Router
+- React Native + TypeScript
+- @react-three/fiber
+- @react-three/drei
+- r3f-native-orbitcontrols
+- @react-spring/three
+- Zustand
+- AsyncStorage
+
+### Funcionalidades implementadas
+
+- Escena 3D con cámara (`PerspectiveCamera`) y luces básicas (ambient + spot + point).
+- Controles táctiles de cámara con `r3f-native-orbitcontrols` (pan, rotate, zoom).
+- CTA para crear instancias 3D (cubos) y CTA para limpiar la escena.
+- Generación procedural por instancia: color, tamaño, posición, eje de rotación y velocidad.
+- Interacción por tap/click en cada objeto:
+  - randomización de color,
+  - cambio de eje de rotación.
+- Animación de escala por interacción usando `@react-spring/three`.
+- Estado global con Zustand (lista de instancias).
+- Persistencia con Zustand + AsyncStorage (las instancias se recuperan al reabrir).
+- Límite de objetos en store (`MAX_OBJECTS = 5`) para mantener la escena ligera y estable.
 
 ### Requisitos previos
 
-Node.js ≥ 18
+- Node.js 18+
+- npm o yarn
 
-npm o yarn
+### Ejecución
 
-Expo CLI
+1. Instalar dependencias:
 
-Instalación de Expo CLI (si no lo tienes):
+   yarn install
 
-`npm install -g expo-cli`
+2. Iniciar Expo:
 
-### Pasos para ejecutar el proyecto
+   npx expo start
 
-1. Clonar el repositorio
+3. Opciones comunes:
+   - iOS simulator: npx expo start --ios
+   - Web: npx expo start --web
 
-   ` git clone https://github.com/frankyfdr/collectibol-3d`
+### Nota sobre iOS Simulator
 
-   `cd collectibol-3d`
+El simulador de iOS puede tener limitaciones de OpenGL/EXGL. La validación final de rendimiento y estabilidad 3D es más fiable en dispositivo físico.
 
-2. Instalar dependencias
-   `npm install`
-
-3. Ejecutar la aplicación
-   `npx expo start`
-
-Se abrirá el panel de Expo donde podrás ejecutar la app en:
-
-#### iOS Simulator
-
-iOS simulators often have incomplete or unreliable OpenGL ES support, which can cause EXC_BAD_ACCESS crashes when rendering 3D content. Always test on a physical iOS device (iPhone/iPad running iOS 16 or later) to ensure stable WebGL rendering.
-
-#### Navegador Web
-
-Asegúrate de tener instaladas las siguientes librerías
-
-    npx expo install react-dom react-native-web
-
-## Run
-
-``yarn install`
-` yarn start --web`
-
-Autor
-
-Franklin Rocha
-Prueba técnica realizada para Collectibol
+Autor: Franklin Rocha
