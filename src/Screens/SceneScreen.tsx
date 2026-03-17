@@ -1,17 +1,19 @@
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { ButtonCTA } from '../Components/Button';
 import { Scene3D } from '../Components/Scene3D';
 import { useObjectsStore } from '../store';
 import { randomColor, randomDirection, randomPosition, randomSize, randomString, randomVelocity } from '../../utils/random';
 import { router } from 'expo-router';
+import { goBack } from 'expo-router/build/global-state/routing';
 const SceneScreen = () => {
   const addObject = useObjectsStore((s) => s.addObject);
   const clearObjects = useObjectsStore((s) => s.clearObjects);
   return (
-    <View>
-      <View>
-        <TouchableOpacity onPress={() => router.push('/')}>
-          <Text>⬅ Go Back</Text>
+    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 10 }}>
+      <View style={{ top: 100, left: 10, position: 'absolute', zIndex: 1 }}>
+        <TouchableOpacity style={styles.goBackButton} onPress={() => router.push('/')}>
+          <Text>Go Back</Text>
         </TouchableOpacity>
       </View>
       <View>
@@ -35,7 +37,7 @@ const SceneScreen = () => {
         }
       />
       <ButtonCTA variant="secondary" title="Clear" onPress={() => clearObjects()} />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -45,6 +47,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: 'center',
     color: '#484948',
+  },
+  goBackButton: {
+    backgroundColor: '#A5D6A7',
+    padding: 10,
+    borderRadius: 5,
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    zIndex: 1,
   },
   sceneContainer: {
     borderColor: '#A5D6A7',
