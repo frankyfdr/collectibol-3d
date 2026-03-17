@@ -47,6 +47,9 @@ Mini app desarrollada con Expo + React Native para generar objetos 3D de forma p
    - iOS simulator: npx expo start --ios
    - Web: npx expo start --web
 
+### Demo Video
+https://github.com/user-attachments/assets/9f5f15cd-262d-4122-bdc4-24830a578112
+
 ### Nota sobre iOS Simulator
 
 El simulador de iOS puede tener limitaciones de OpenGL/EXGL. La validación final de rendimiento y estabilidad 3D es más fiable en dispositivo físico.
